@@ -1,0 +1,17 @@
+.sidebar {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #d63384;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}

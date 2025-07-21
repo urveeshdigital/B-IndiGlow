@@ -1,0 +1,40 @@
+.footer {
+  background-color: #f7f1f1;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer-content h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #d63384;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: #d63384;
+}
+
+.footer-links li a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #888;
+}
