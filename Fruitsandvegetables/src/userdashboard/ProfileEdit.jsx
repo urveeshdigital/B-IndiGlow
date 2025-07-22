@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 import './ProfileEdit.css';
 
 const ProfileEdit = () => {
-  const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -65,13 +62,17 @@ const ProfileEdit = () => {
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
           },
         }
       );
 
       console.log('Profile updated:', response.data);
       alert('Profile updated successfully!');
-      navigate('/profile');
+
+      // Refresh the page
+      window.location.reload();
+
     } catch (err) {
       console.error('Error updating profile:', err);
       setError('Failed to update profile. Please try again.');

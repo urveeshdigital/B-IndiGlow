@@ -1,0 +1,33 @@
+.about-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.about-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-section {
+  margin-top: 30px;
+}
+
+.about-section h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  color: #444;
+}
