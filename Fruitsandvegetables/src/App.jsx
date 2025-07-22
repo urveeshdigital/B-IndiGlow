@@ -23,7 +23,7 @@ import ChangePassword from './userdashboard/ChangePassword'
 import Products from './userdashboard/Products'
 import Contact from './userdashboard/Contact'
 import About from './userdashboard/About'
-
+import ProfilePage from './userdashboard/profilepage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -54,6 +54,8 @@ function App() {
                            <Route path="products" element={<Products/>} />  
                              <Route path="contact" element={<Contact/>} />  
                               <Route path="about" element={<About/>} />  
+                                      <Route path="/profileview" element={<ProfilePage />} />
+
                             {/* <Route path="change-password" element={<ChangePassword/>} /> */}
 
                          

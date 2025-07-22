@@ -76,7 +76,7 @@ const Navbar = () => {
   };
 
   const handleProfile = () => {
-    navigate('/profile');
+    navigate('/profileview');
     setShowDropdown(false);
   };
 

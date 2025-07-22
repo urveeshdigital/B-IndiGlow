@@ -70,14 +70,14 @@ const Login = () => {
             <form onSubmit={formik.handleSubmit}>
               <h1>Login</h1>
 
-              <label>Name</label>
+              <label>Username or Email</label>
               <input
                 type='text'
                 name='name'
                 value={formik.values.name}
                 onChange={formik.handleChange}
               />
-              {formik.errors.name && <div className="error">{formik.errors.name}</div>}
+{formik.touched.name && formik.errors.name && <div className="error">{formik.errors.name}</div>}
 
               <label>Password</label>
               <input
@@ -86,20 +86,50 @@ const Login = () => {
                 value={formik.values.password}
                 onChange={formik.handleChange}
               />
-              {formik.errors.password && <div className="error">{formik.errors.password}</div>}
+{formik.touched.name && formik.errors.name && <div className="error">{formik.errors.name}</div>}
 
               <button type='submit'>Login</button>
 
               <p
+                className="forgot-link"
                 onClick={() => navigate('/forgot')}
-                style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
               >
                 Forgot Password
               </p>
+
             </form>
 
+            <div className="social-login">
+              <p>Or login with</p>
+              <div className="icon-row">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                  alt="Google"
+                  onClick={() => handleSocialLogin('google')}
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  alt="GitHub"
+                  onClick={() => handleSocialLogin('github')}
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+                  alt="Facebook"
+                  onClick={() => handleSocialLogin('facebook')}
+                />
+              </div>
+              <div className="bottom-link">
+              <p>
+                Don't have an account?{' '}
+                <span onClick={() => navigate('/register')}>Register here</span>
+              </p>
+            </div>
+            </div>
           </div>
+
+
         </div>
+
       </div>
     </>
   );

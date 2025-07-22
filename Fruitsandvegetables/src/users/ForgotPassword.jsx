@@ -51,6 +51,12 @@ const ForgotPassword = () => {
           />
           <button type='submit'>Send OTP</button>
         </form>
+              <div className="bottom-link">
+              <p>
+                Know your account?{' '}
+                <span onClick={() => navigate('/login')}>Login here</span>
+              </p>
+            </div>
         </div>
       </div>
     </div>
