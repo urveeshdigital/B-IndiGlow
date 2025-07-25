@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Users.css";
-import MyImage from "../assets/images/form.jpg";
+import MyImage from "../assets/images/registerform.jpg";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";

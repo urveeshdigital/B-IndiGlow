@@ -1,15 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProfileSidebar.css';
+const ProfileSidebar = ({ activeTab, setActiveTab, onLogout }) => {
+  const navigate = useNavigate();
 
-const ProfileSidebar = () => {
   return (
-    <div className="sidebar shadow-sm p-3 rounded bg-white">
-
-      <ul className="list-unstyled sidebar-list">
-        <li><a href="/">🏠 Dashboard</a></li>
-        <li><a href="/profile">🙍‍♂️ My Profile</a></li>
-        <li><a href="/settings">⚙️ Settings</a></li>
-        <li><a href="/logout">🚪 Logout</a></li>
+    <div className="profile-sidebar">
+      <h2>My Account</h2>
+      <ul>
+        <li className={activeTab === 'overview' ? 'active' : ''} onClick={() => setActiveTab('overview')}>Overview</li>
+        <li onClick={() => navigate('/order')}>Orders</li>
+        <li onClick={() => navigate('/wishlist')}>Wishlist</li>
+        <li onClick={() => navigate('/paymentmethod')}>Payment Method</li>
+        <li>Change Password</li>
+        <li>Help & Support</li>
+        <li onClick={onLogout}>Logout</li>
       </ul>
     </div>
   );

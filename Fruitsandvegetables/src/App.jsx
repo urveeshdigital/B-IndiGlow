@@ -16,7 +16,7 @@ import Dashboardcard from './dashboard/Dashboardcard'
 import Graph from './dashboard/Graph'
 import UserTable from './dashboard/UserTable'
 import User from './dashboard/User'
-import Profile from './userdashboard/Profile'
+
 import Dashboard from './dashboard/Dashboard'
 import ProfileEdit from './userdashboard/ProfileEdit'
 import ChangePassword from './userdashboard/ChangePassword'
@@ -24,6 +24,9 @@ import Products from './userdashboard/Products'
 import Contact from './userdashboard/Contact'
 import About from './userdashboard/About'
 import ProfilePage from './userdashboard/profilepage'
+import Order from './userdashboard/Order'
+import PaymentMethod from './userdashboard/PaymentMethod'
+import Wishlist from './userdashboard/Wishlist'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -48,13 +51,17 @@ function App() {
                          <Route path="graph" element={<Graph/>} /> 
                          <Route path="users" element={<UserTable/>} />
                           <Route path="user" element={<User/>} /> 
-                          <Route path="profile" element={<Profile/>} />   
+                            
                           <Route path="edit-profile" element={<ProfileEdit/>} />  
                           <Route path="change-password" element={<ChangePassword/>} />  
                            <Route path="products" element={<Products/>} />  
                              <Route path="contact" element={<Contact/>} />  
                               <Route path="about" element={<About/>} />  
-                                      <Route path="/profileview" element={<ProfilePage />} />
+                                    
+                                              <Route path="/profileview" element={<ProfilePage />} />
+                                              <Route path="/order" element={<Order/>} />
+                                              <Route path="/paymentmethod" element={<PaymentMethod/>} />
+                                               <Route path="/wishlist" element={<Wishlist/>} />
 
                             {/* <Route path="change-password" element={<ChangePassword/>} /> */}
 

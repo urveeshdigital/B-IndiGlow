@@ -1,55 +1,41 @@
-.sidebar {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
+.profile-sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background-color: #d63380;
+  border-right: 1px solid #ddd;
   padding: 20px;
-  width: 240px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
 }
 
-.sidebar:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+.profile-sidebar h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
 }
 
-.sidebar-title {
-  font-size: 20px;
-  color: #2c2c2c;
-  margin-bottom: 18px;
-  font-weight: 700;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
-}
-
-.sidebar-list {
-  list-style: none;
+.profile-sidebar ul {
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.sidebar-list li {
-  margin-bottom: 12px;
+.profile-sidebar li {
+  padding: 12px 10px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 4px;
+  /* transition: background 0.2s, color 0.2s; */
 }
 
-.sidebar-list li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #d63384;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+.profile-sidebar li:hover {
+  background-color: #e9ecef;
+  color: #d63380;
 }
 
-.sidebar-list li a:hover {
-  background-color: #fce4ec;
-  color: #a61d65;
-  transform: translateX(4px);
-}
-
-.sidebar-list li a:active {
-  background-color: #f8bbd0;
-  color: #7b1349;
+.profile-sidebar li.active {
+  background-color: #d63380;
+  color: white;
+  font-weight: bold;
 }

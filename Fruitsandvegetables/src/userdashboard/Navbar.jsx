@@ -1,44 +1,4 @@
-// import React from 'react';
-// import './Navbar.css';
-// import { NavLink, useNavigate } from 'react-router-dom';
-// import { FaHome, FaUser, FaBell, FaSignOutAlt } from 'react-icons/fa';
 
-// const Navbar = () => {
-//   const navigate = useNavigate();
-
-//   const handleLogin = () => {
-//     navigate('/login');
-//   };
-
-//   const handleRegister = () => {
-//     navigate('/register');
-//   };
-
-//   return (
-//     <nav className="navbar">
-//       <div className="navbar-left">
-//         <h2>B-IndiGlow</h2>
-//       </div>
-
-//       <div className="navbar-center">
-//         <NavLink to="/dashboard" className="nav-link" activeclassname="active-link">
-//           <FaHome /> Home
-//         </NavLink>
-//       </div>
-
-//       <div className="navbar-right">
-//         <button className="logout-btn" onClick={handleLogin}>
-//           <FaSignOutAlt /> Login
-//         </button>
-//         <button className="logout-btn" onClick={handleRegister}>
-//           <FaSignOutAlt /> Register
-//         </button>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
 import React, { useEffect, useState } from 'react';
 import "../userdashboard/Navbar.css"
 import { NavLink, useNavigate } from 'react-router-dom';

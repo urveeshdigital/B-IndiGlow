@@ -67,7 +67,7 @@ form {
 form h1 {
   text-align: center;
   margin-bottom: 24px;
-  color: #000000;
+  color: #d63384;
   font-size: 28px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
@@ -75,7 +75,7 @@ form h1 {
 form label {
   margin: 12px 0 6px;
   font-weight: 500;
-  color: #000000;
+  color: #d63384;
   text-align: start;
 }
 
@@ -96,7 +96,7 @@ form input:focus {
 form button {
   margin-top: 20px;
   padding: 12px;
-  background-color: #4cd964;
+  background-color: #d63384;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -107,13 +107,13 @@ form button {
 }
 
 form button:hover {
-  background-color: #32b450;
+  background-color: #000000;
   transform: translateY(-2px);
 }
 
 .forgot-link {
   margin-top: 12px;
-  color: #15ff00;
+  color: #d63384;
   text-align: center;
   display: block;
   text-decoration: underline;
@@ -184,7 +184,7 @@ form button:hover {
 }
 
 .bottom-link span {
-  color: #15ff00;
+  color: #d63380;
   cursor: pointer;
   text-decoration: underline;
 }

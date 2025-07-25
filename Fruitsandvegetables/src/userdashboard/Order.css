@@ -1,0 +1,67 @@
+/* Layout container */
+.order-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Sidebar container */
+.sidebar {
+  flex: 0 0 250px;
+}
+
+/* Main content */
+.order-content {
+  flex: 1;
+}
+
+/* Orders container */
+.orders-container {
+  max-width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.orders-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Table styling */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.orders-table th {
+  background-color: #f4f4f4;
+}
+
+/* Status text styling */
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.delivered {
+  color: green;
+}
+
+.status.processing {
+  color: orange;
+}
+
+.status.cancelled {
+  color: red;
+}
