@@ -1,5 +1,6 @@
 import React from 'react';
 import './profilepage.css'; // Ensure CSS is imported here
+import ProfileLayout from './ProfileLayout';
 
 const OverviewTab = () => {
   return (

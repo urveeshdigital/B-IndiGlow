@@ -1,19 +1,23 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './ProfileSidebar.css';
-const ProfileSidebar = ({ activeTab, setActiveTab, onLogout }) => {
+
+const ProfileSidebar = ({ onLogout }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path ? 'active' : '';
 
   return (
     <div className="profile-sidebar">
       <h2>My Account</h2>
       <ul>
-        <li className={activeTab === 'overview' ? 'active' : ''} onClick={() => setActiveTab('overview')}>Overview</li>
-        <li onClick={() => navigate('/order')}>Orders</li>
-        <li onClick={() => navigate('/wishlist')}>Wishlist</li>
-        <li onClick={() => navigate('/paymentmethod')}>Payment Method</li>
-        <li>Change Password</li>
-        <li>Help & Support</li>
+        <li className={isActive('/profileview')} onClick={() => navigate('/profileview')}>Overview</li>
+        <li className={isActive('/order')} onClick={() => navigate('/order')}>Orders</li>
+        <li className={isActive('/wishlist')} onClick={() => navigate('/wishlist')}>Wishlist</li>
+        <li className={isActive('/paymentmethod')} onClick={() => navigate('/paymentmethod')}>Payment Method</li>
+        <li className={isActive('/changepassword')} onClick={() => navigate('/changepassword')}>Change Password</li>
+        <li className={isActive('/help')} onClick={() => navigate('/help')}>Help & Support</li>
         <li onClick={onLogout}>Logout</li>
       </ul>
     </div>

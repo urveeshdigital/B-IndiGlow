@@ -4,7 +4,7 @@
   background-color: #d63380;
   border-right: 1px solid #ddd;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .profile-sidebar h2 {
@@ -26,7 +26,6 @@
   cursor: pointer;
   color: #fff;
   border-radius: 4px;
-  /* transition: background 0.2s, color 0.2s; */
 }
 
 .profile-sidebar li:hover {
@@ -35,7 +34,55 @@
 }
 
 .profile-sidebar li.active {
-  background-color: #d63380;
-  color: white;
+  background-color: #fff;
+  color: #d63380;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .profile-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+  }
+
+  .profile-sidebar h2 {
+    display: none;
+  }
+
+  .profile-sidebar ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+  }
+
+  .profile-sidebar li {
+    flex: 0 0 auto;
+    background-color: #fff;
+    color: #d63380;
+    padding: 10px 16px;
+    margin-right: 8px;
+    border: 1px solid #d63380;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .profile-sidebar li.active {
+    background-color: #d63380;
+    color: white;
+    font-weight: bold;
+  }
+
+  .profile-sidebar li:hover {
+    background-color: #f8f8f8;
+    color: #d63380;
+  }
 }

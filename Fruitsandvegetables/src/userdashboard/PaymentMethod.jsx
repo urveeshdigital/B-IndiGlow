@@ -6,6 +6,8 @@ import rupay from './images/rupay.jpg';
 import upi from './images/upi.jpg';
 import cod from './images/cod.jpg';
 import Sidebar from './ProfileSidebar';
+import ProfileLayout from './ProfileLayout';
+
 
 const PaymentMethod = () => {
   const [selectedMethod, setSelectedMethod] = useState('');
@@ -44,12 +46,13 @@ const PaymentMethod = () => {
   );
 
   return (
+    <ProfileLayout>
     <div className="payment-dashboard">
       <h2 className="title">Payment Dashboard</h2>
       
       <div className="payment-container">
         {/* Sidebar */}
-        <Sidebar />
+ 
 
         {/* Right side content */}
         <div className="payment-content">
@@ -213,6 +216,7 @@ const PaymentMethod = () => {
         </div>
       </div>
     </div>
+    </ProfileLayout>
   );
 };
 

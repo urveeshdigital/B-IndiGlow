@@ -36,6 +36,7 @@ function App() {
 
     <Router>
       <Routes>
+        
           <Route path="/" element={<User />} /> 
         <Route  path="register" element={<Register />}></Route>
          
@@ -57,14 +58,14 @@ function App() {
                            <Route path="products" element={<Products/>} />  
                              <Route path="contact" element={<Contact/>} />  
                               <Route path="about" element={<About/>} />  
-                                    
-                                              <Route path="/profileview" element={<ProfilePage />} />
-                                              <Route path="/order" element={<Order/>} />
-                                              <Route path="/paymentmethod" element={<PaymentMethod/>} />
-                                               <Route path="/wishlist" element={<Wishlist/>} />
+
+                                                {/* <Route path="/" element={<Navigate to="/profileview" />} /> */}
+                                <Route path="/profileview" element={<ProfilePage />} />
+                                <Route path="/order" element={<Order/>} />
+                                <Route path="/paymentmethod" element={<PaymentMethod/>} />
+                                 <Route path="/wishlist" element={<Wishlist/>} />
 
                             {/* <Route path="change-password" element={<ChangePassword/>} /> */}
-
                          
 
 

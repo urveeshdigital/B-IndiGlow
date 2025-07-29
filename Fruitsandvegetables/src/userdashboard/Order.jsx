@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Order.css";
 import OverviewTab from "./OverviewTab";
-
+import ProfileLayout from './ProfileLayout';
 const Order = () => {
   const [orders, setOrders] = useState([]);
 
@@ -34,6 +34,7 @@ const Order = () => {
   }, []);
 
   return (
+        <ProfileLayout>
     <div className="order-page">
       {/* <div className="sidebar"></div> */}
       <div className="order-content">
@@ -71,7 +72,9 @@ const Order = () => {
         </div>
       </div>
     </div>
+    </ProfileLayout>
   );
 };
 
 export default Order;
+

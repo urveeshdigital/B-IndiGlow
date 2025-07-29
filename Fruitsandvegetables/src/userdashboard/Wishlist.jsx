@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Wishlist.css';
-
+import ProfileLayout from './ProfileLayout';
 const Wishlist = () => {
   const [wishlistItems, setWishlistItems] = useState([
     {
@@ -41,6 +41,7 @@ const Wishlist = () => {
   };
 
   return (
+    <ProfileLayout>
     <div className="wishlist-container">
       <h2>My Wishlist</h2>
       {wishlistItems.length === 0 ? (
@@ -58,6 +59,7 @@ const Wishlist = () => {
         </div>
       )}
     </div>
+    </ProfileLayout>
   );
 };
 
