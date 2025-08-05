@@ -15,15 +15,15 @@ const UserTable = () => {
   const fetchUsers = async () => {
     try {
       const token = Cookies.get("token");
-      const response = await axios.get(
-        "http://192.168.29.136:8000/admin/total",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setUsers(response.data.data);
+      const response = await axios.get("http://192.168.29.136:8000/admin/total", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const formattedUsers = response.data.data.map((u) => ({
+        ...u,
+        status: u.status === true || u.status === 1 || u.status === "active",
+      }));
+      setUsers(formattedUsers);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -34,26 +34,19 @@ const UserTable = () => {
       const token = Cookies.get("token");
       const updatedStatus = !currentStatus;
 
-      // POST API to toggle status
       await axios.post(
         "http://192.168.29.136:8000/admin/total",
-        { id: userId },
+        { id: userId, status: updatedStatus },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         }
       );
 
-      // Update local state
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
           user.id === userId ? { ...user, status: updatedStatus } : user
         )
       );
-
-      // OR: Refresh all users from server instead of updating locally
-      // await fetchUsers();
     } catch (error) {
       console.error("Error updating status via POST API:", error);
     }
@@ -75,6 +68,7 @@ const UserTable = () => {
                   <th>Email</th>
                   <th>Number</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -85,20 +79,23 @@ const UserTable = () => {
                     <td>{user.email}</td>
                     <td>{user.number}</td>
                     <td>
+                      <span className={`status-label ${user.status ? "active" : "deactive"}`}>
+                        {user.status ? "Active" : "Deactive"}
+                      </span>
+                    </td>
+                    <td>
                       <button
-                        className={`status-btn ${
-                          user.status ? "active" : "deactive"
-                        }`}
+                        className={`status-btn ${user.status ? "deactivate" : "activate"}`}
                         onClick={() => toggleStatus(user.id, user.status)}
                       >
-                        {user.status ? "Active" : "Deactive"}
+                        {user.status ? "Deactivate" : "Activate"}
                       </button>
                     </td>
                   </tr>
                 ))}
                 {users.length === 0 && (
                   <tr>
-                    <td colSpan="5">No users found.</td>
+                    <td colSpan="6">No users found.</td>
                   </tr>
                 )}
               </tbody>

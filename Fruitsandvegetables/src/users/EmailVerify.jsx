@@ -3,6 +3,7 @@ import "./Users.css";
 import MyImage from "../assets/images/form.jpg";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';  // ✅ Import js-cookie
 
 const EmailVerify = () => {
   const navigate = useNavigate();
@@ -13,9 +14,19 @@ const EmailVerify = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://192.168.29.136:8000/verifyRegister", {
-        otp: otp
-      });
+      // ✅ Get token from cookies
+      const token = Cookies.get('token');  
+
+      const response = await axios.post(
+        "http://192.168.29.136:8000/verifyRegister",
+        { otp: otp },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // ✅ Send token in header
+            "Content-Type": "application/json"
+          }
+        }
+      );
 
       if (response.data.status) {
         navigate("/login");

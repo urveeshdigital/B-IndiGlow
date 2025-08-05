@@ -1,0 +1,226 @@
+/* Container */
+.product-history-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.product-history-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+/* Table */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.product-table th,
+.product-table td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.product-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.product-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Image */
+.product-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Loading Text */
+.loading-text {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Empty Text */
+.empty-text {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+}
+.product-history-container {
+  padding: 20px;
+}
+
+.product-history-title {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.add-product-btn {
+  background: #d63380;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th, .product-table td {
+  padding: 8px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+.product-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* ✅ Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.save-btn {
+  background: #d63380;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #f44336;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.preview-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+.action-col {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.edit-btn {
+  color: #d63380;
+}
+
+.delete-btn {
+  color: #dc3545;
+}
+.status-enabled {
+  color: green;
+  font-weight: bold;
+}
+.status-disabled {
+  color: red;
+  font-weight: bold;
+}
+
+.enable-btn, .disable-btn {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.enable-btn {
+  background: #d63380;
+  color: white;
+}
+
+.disable-btn {
+  background: #dc3545;
+  color: white;
+}
+/* ✅ Admin Layout */
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.admin-main {
+  display: flex;
+  flex: 1;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  overflow-y: auto;
+}
+
+/* Keep your existing product-history-container CSS here */

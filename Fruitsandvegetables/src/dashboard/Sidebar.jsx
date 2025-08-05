@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <div className="sidebar full-sidebar">
       <ul>
         <li>
           <NavLink 
@@ -29,6 +29,14 @@ const Sidebar = () => {
             className={({ isActive }) => isActive ? 'active-link' : 'inactive-link'}
           >
             <FaCog /> Settings
+          </NavLink>
+        </li>
+         <li>
+          <NavLink 
+            to="/producthistory" 
+            className={({ isActive }) => isActive ? 'active-link' : 'inactive-link'}
+          >
+            <FaCog /> Products
           </NavLink>
         </li>
         <li>

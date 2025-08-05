@@ -4,6 +4,7 @@ import MyImage from "../assets/images/registerform.jpg";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
+import Cookies from "js-cookie"; // ✅ Import js-cookie
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import url from "../Config"
@@ -46,7 +47,12 @@ const Register = () => {
       try {
         setLoading(true);
         const response = await axios.post(`${url}/register`, values);
-        
+        console.log(response.data.token)
+        // ✅ Store token in cookies if returned
+        if (response.data.token) {
+          Cookies.set("token", response.data.token, { expires: 7, secure: true });
+        }
+
         toast.success(response.data.message, {
           position: "top-right",
           autoClose: 2000,
@@ -86,8 +92,11 @@ const Register = () => {
                 name="name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
+                onBlur={formik.handleBlur}
               />
-{formik.touched.name && formik.errors.name && <div className="error">{formik.errors.name}</div>}
+              {formik.touched.name && formik.errors.name && (
+                <div className="error">{formik.errors.name}</div>
+              )}
 
               <label>Email</label>
               <input
@@ -95,70 +104,74 @@ const Register = () => {
                 name="email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
+                onBlur={formik.handleBlur}
               />
-{formik.touched.name && formik.errors.name && <div className="error">{formik.errors.name}</div>}
+              {formik.touched.email && formik.errors.email && (
+                <div className="error">{formik.errors.email}</div>
+              )}
 
-  <div className="password-grid">
-    <div className="form-group">
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-        onBlur={formik.handleBlur}
-      />
-      {formik.touched.password && formik.errors.password && (
-        <div className="error">{formik.errors.password}</div>
-      )}
-    </div>
+              <div className="password-grid">
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.password && formik.errors.password && (
+                    <div className="error">{formik.errors.password}</div>
+                  )}
+                </div>
 
-    <div className="form-group">
-      <label>Confirm Password</label>
-      <input
-        type="password"
-        name="cpassword"
-        onChange={formik.handleChange}
-        value={formik.values.cpassword}
-        onBlur={formik.handleBlur}
-      />
-      {formik.touched.cpassword && formik.errors.cpassword && (
-        <div className="error">{formik.errors.cpassword}</div>
-      )}
-    </div>
-  </div>
+                <div className="form-group">
+                  <label>Confirm Password</label>
+                  <input
+                    type="password"
+                    name="cpassword"
+                    onChange={formik.handleChange}
+                    value={formik.values.cpassword}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.cpassword && formik.errors.cpassword && (
+                    <div className="error">{formik.errors.cpassword}</div>
+                  )}
+                </div>
+              </div>
+
               <button type="submit" disabled={loading}>
-                {loading ? "Registering..." : "Register"} {/* ✅ Step 4 */}
+                {loading ? "Registering..." : "Register"}
               </button>
             </form>
+
             <div className="social-login">
-            <p className="social-text">Or signup with</p>
-            <div className="icon-row">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
-                alt="Google"
-                onClick={() => handleSocialLogin('google')}
-              />
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                alt="GitHub"
-                onClick={() => handleSocialLogin('github')}
-              />
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
-                alt="Facebook"
-                onClick={() => handleSocialLogin('facebook')}
-              />
-            </div>
+              <p className="social-text">Or signup with</p>
+              <div className="icon-row">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                  alt="Google"
+                  onClick={() => handleSocialLogin('google')}
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  alt="GitHub"
+                  onClick={() => handleSocialLogin('github')}
+                />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+                  alt="Facebook"
+                  onClick={() => handleSocialLogin('facebook')}
+                />
+              </div>
 
-            <div className="bottom-link">
-              <p>
-                Already have an account?{" "}
-                <span onClick={() => navigate("/login")}>Login here</span>
-              </p>
+              <div className="bottom-link">
+                <p>
+                  Already have an account?{" "}
+                  <span onClick={() => navigate("/login")}>Login here</span>
+                </p>
+              </div>
             </div>
-            </div>
-
 
           </div>
         </div>

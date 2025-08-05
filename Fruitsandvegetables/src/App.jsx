@@ -27,6 +27,9 @@ import ProfilePage from './userdashboard/profilepage'
 import Order from './userdashboard/Order'
 import PaymentMethod from './userdashboard/PaymentMethod'
 import Wishlist from './userdashboard/Wishlist'
+import AddToCart from './userdashboard/AddToCart'
+import ProductHistory from './dashboard/ProductHistory'
+import Address from './userdashboard/Address'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -64,7 +67,9 @@ function App() {
                                 <Route path="/order" element={<Order/>} />
                                 <Route path="/paymentmethod" element={<PaymentMethod/>} />
                                  <Route path="/wishlist" element={<Wishlist/>} />
-
+                                    <Route path="/addtocart" element={<AddToCart/>} />
+<Route path="/producthistory" element={<ProductHistory/>} />
+<Route path="/address" element={<Address/>} />
                             {/* <Route path="change-password" element={<ChangePassword/>} /> */}
                          
 

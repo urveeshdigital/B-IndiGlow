@@ -11,7 +11,7 @@
 }
 
 .user-table th, .user-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
   padding: 8px;
   text-align: left;
 }
@@ -54,5 +54,35 @@
 }
 
 .status-btn.deactive {
+  background-color: red;
+}
+/* ✅ Status Text Colors */
+.status-label.active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-label.deactive {
+  color: red;
+  font-weight: bold;
+}
+
+/* ✅ Button Styling */
+.status-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ✅ Green for Activate */
+.status-btn.activate {
+  background-color: green;
+}
+
+/* ✅ Red for Deactivate */
+.status-btn.deactivate {
   background-color: red;
 }

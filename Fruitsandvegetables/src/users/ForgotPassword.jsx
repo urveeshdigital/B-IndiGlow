@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie';
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -15,11 +16,16 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post("http://192.168.29.136:8000/forgot", { email });
-      console.log("Response:", response.data);
+      console.log("Response:", response.data.token);
+
+      // ✅ Save token if available
+      if (response.data.token) {
+        Cookies.set('resetToken', response.data.token, { expires: 7 }); // expires in 1 day
+      }
 
       toast.success(response.data.message || "OTP sent successfully");
 
-      // Navigate after a short delay to allow user to see the toast
+      // Navigate after a short delay
       setTimeout(() => {
         navigate("/otp");
       }, 1500);
@@ -39,24 +45,23 @@ const ForgotPassword = () => {
       </div>
       <div className='right'>
         <div className="reg-form">
-
-        <form onSubmit={handleForgotPassword}>
-          <h1>Forgot Password</h1>
-          <label>Email</label>
-          <input
-            type='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <button type='submit'>Send OTP</button>
-        </form>
-              <div className="bottom-link">
-              <p>
-                Know your account?{' '}
-                <span onClick={() => navigate('/login')}>Login here</span>
-              </p>
-            </div>
+          <form onSubmit={handleForgotPassword}>
+            <h1>Forgot Password</h1>
+            <label>Email</label>
+            <input
+              type='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button type='submit'>Send OTP</button>
+          </form>
+          <div className="bottom-link">
+            <p>
+              Know your account?{' '}
+              <span onClick={() => navigate('/login')}>Login here</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

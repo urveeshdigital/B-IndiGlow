@@ -5,7 +5,7 @@
 }
 
 .sidebar li {
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 .sidebar a {
@@ -15,12 +15,17 @@
   color: white;
   gap: 10px;
   font-size: 16px;
+  padding: 10px 15px;  /* ✅ Add padding for background */
+  border-radius: 6px;  /* ✅ Rounded corners */
+  transition: background 0.3s ease;
 }
 
 .active-link {
-  color: #007bff;
+  background: #d63380;  /* ✅ Background for active link */
+  color: #fff;          /* ✅ White text */
 }
 
 .inactive-link:hover {
-  color: #007bff;
+  background: rgba(214, 51, 128, 0.8); /* ✅ Hover effect */
+  color: #fff;
 }

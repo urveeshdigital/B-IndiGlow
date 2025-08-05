@@ -17,10 +17,10 @@
 
 .sidebar {
   width: 220px;
-  background-color: #f8f8f8;
+  background-color: #d63380;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
 }
 
 /* Right side layout */
@@ -48,7 +48,7 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
 }
 
 .radio-group {
@@ -126,7 +126,7 @@
 .summary-box {
   background-color: #f9f9f9;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
   padding: 20px;
 }
 

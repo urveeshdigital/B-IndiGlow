@@ -1,11 +1,19 @@
-
 import React, { useEffect, useState } from 'react';
-import "../userdashboard/Navbar.css"
+import "../userdashboard/Navbar.css";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { FaHome, FaSignOutAlt, FaSignInAlt, FaUserPlus, FaUserCircle, FaUser } from 'react-icons/fa';
+import { 
+  FaHome, 
+  FaSignOutAlt, 
+  FaSignInAlt, 
+  FaUserPlus, 
+  FaUserCircle, 
+  FaUser, 
+  FaShoppingCart, 
+  FaHeart 
+} from 'react-icons/fa';  // ✅ Added FaHeart
 import Cookies from 'js-cookie';
 
-const Navbar = () => {
+const Navbar = ({ cartCount = 0, wishlistCount = 0 }) => {   // ✅ Added wishlistCount
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -15,29 +23,27 @@ const Navbar = () => {
     setIsLoggedIn(!!token);
   }, []);
 
-  const handleLogin = () => {
-    navigate('/login');
-  };
-
-  const handleRegister = () => {
-    navigate('/register');
-  };
-
+  const handleLogin = () => navigate('/login');
+  const handleRegister = () => navigate('/register');
   const handleLogout = () => {
     Cookies.remove('token');
     setIsLoggedIn(false);
     navigate('/login');
   };
 
-  const toggleDropdown = () => {
-    console.log("hello")
-    setShowDropdown(!showDropdown);
-    console.log("hey..")
-  };
+  const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   const handleProfile = () => {
     navigate('/profileview');
     setShowDropdown(false);
+  };
+
+  const handleCart = () => {
+    navigate('/addtocart');   // ✅ Redirects to AddToCart page
+  };
+
+  const handleWishlist = () => {
+    navigate('/wishlist');    // ✅ Redirects to Wishlist page
   };
 
   return (
@@ -65,10 +71,25 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
+        {isLoggedIn && (
+          <>
+            {/* ✅ Wishlist Icon */}
+            <div className="cart-icon" onClick={handleWishlist}>
+              <FaHeart size={24}  />
+              {wishlistCount > 0 && <span className="wishlist-count">{wishlistCount}</span>}
+            </div>
+
+            {/* ✅ Cart Icon */}
+            <div className="cart-icon" onClick={handleCart}>
+              <FaShoppingCart size={24} />
+              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+            </div>
+          </>
+        )}
+
         {isLoggedIn ? (
           <div className="dropdown__">
             <FaUserCircle size={24} className="dropdown-icon__" onClick={toggleDropdown} />
-
             {showDropdown && (
               <div className="dropdown-menu__">
                 <button onClick={handleProfile}><FaUser /> Profile</button>

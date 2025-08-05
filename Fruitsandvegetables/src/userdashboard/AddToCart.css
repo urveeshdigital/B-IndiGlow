@@ -1,0 +1,123 @@
+.cart-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #d63380; /* ✅ Main background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  color: white; /* ✅ Text color */
+}
+
+.cart-title {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #f8d7e2;
+  font-size: 16px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1); /* ✅ Transparent white card */
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cart-item-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cart-item-info h3 {
+  margin: 0;
+  color: white;
+}
+
+.cart-item-info p {
+  margin: 3px 0;
+  color: #f8d7e2;
+  font-size: 14px;
+}
+
+.cart-item-total {
+  font-weight: bold;
+  color: #ffe9f3; /* ✅ Slightly different shade for total */
+  font-size: 16px;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quantity-control button {
+  background: #d63380;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.delete-btn1 {
+  background: #b32c6d;
+  color: white;
+
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.delete-btn1:hover {
+  background: #fff;
+
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buy-now-btn {
+  background: #b32c6d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 5px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.buy-now-btn:hover {
+  background: #218838;
+}

@@ -1,0 +1,55 @@
+.address-container {
+  background: #b32c6d;
+  color: white;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.address-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.address-form {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #fff
+}
+
+.form-group input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.submit-button {
+  background-color: white;
+  color: #b32c6d;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #f2f2f2;
+}

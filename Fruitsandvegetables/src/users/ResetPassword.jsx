@@ -3,6 +3,7 @@ import "./Users.css";
 import MyImage from "../assets/images/form.jpg";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -20,10 +21,20 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post("http://192.168.29.136:8000/reset", {
-        new_password: newPassword,
-        confirm_password: confirmPassword,
-      });
+      const token = Cookies.get('resetToken'); // ✅ Get token from cookies
+
+      const response = await axios.post(
+        "http://192.168.29.136:8000/reset",
+        {
+          new_password: newPassword,
+          confirm_password: confirmPassword,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // ✅ Send token in header
+          },
+        }
+      );
 
       console.log(response.data);
       alert("Password reset successful");
@@ -41,28 +52,27 @@ const ResetPassword = () => {
       </div>
       <div className='right'>
         <div className="reg-form">
+          <form onSubmit={handleReset}>
+            <h1>Reset Password</h1>
 
-        <form onSubmit={handleReset}>
-          <h1>Reset Password</h1>
+            <label>New Password</label>
+            <input
+              type='password'
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
 
-          <label>New Password</label>
-          <input
-            type='password'
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
+            <label>Confirm Password</label>
+            <input
+              type='password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
 
-          <label>Confirm Password</label>
-          <input
-            type='password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+            {error && <div className="error">{error}</div>}
 
-          {error && <div className="error">{error}</div>}
-
-          <button type='submit'>Reset Password</button>
-        </form>
+            <button type='submit'>Reset Password</button>
+          </form>
         </div>
       </div>
     </div>
